@@ -1,24 +1,45 @@
-valores = {'I':1, 'V':5, 'X':10, 'L':50, 'C':100, 'D':500, 'M':1000}
+valores = {'I':1, 'V': 5, 'X':10, 'L': 50, 'C':100, 'D': 500, 'M': 1000, '0':0}
 
 def romano_a_arabigo(numRomano):
-    numArabigo = 0
+    
     numRepes = 1
     ultimoCaracter = ''
     for letra in numRomano:
         if letra == ultimoCaracter:
-            numRepes += 1
+            numRepes +=1
         else:
             numRepes = 1
-
+        
         if numRepes > 3:
             return 0
-
+        ultimoCaracter = letra
+        
+    for letra in numRomano:
         if letra in valores:
-            numArabigo += valores[letra]
+            pass
         else:
             return 0
+    return resta(numRomano)
 
-        ultimoCaracter = letra
-
+def resta(numRomano):
+    numRomano = numRomano + '0'
+    numArabigo = 0
+    for letra in range (0, len(numRomano)-1):
+        if numRomano[letra+1] == 0:
+            return numArabigo
+        else:
+            if letra == 0 and valores[numRomano[letra]] < valores[numRomano[letra+1]]:
+                numArabigo -= valores[numRomano[letra]]
+            elif valores[numRomano[letra]] < valores[numRomano[letra+1]]:
+                numArabigo -= valores[numRomano[letra]]
+            else:
+                numArabigo += valores[numRomano[letra]]
+                    
     return numArabigo
-
+    
+if __name__ == '__main__':
+    #print(romano_a_arabigo('A'))
+    print(romano_a_arabigo('CMA'))
+    print(romano_a_arabigo('CMXCIX'))
+    print(romano_a_arabigo('VC'))
+    print(romano_a_arabigo('XVI'))
