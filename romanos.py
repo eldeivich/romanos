@@ -37,9 +37,3 @@ def resta(numRomano):
                     
     return numArabigo
     
-if __name__ == '__main__':
-    #print(romano_a_arabigo('A'))
-    print(romano_a_arabigo('CMA'))
-    print(romano_a_arabigo('CMXCIX'))
-    print(romano_a_arabigo('VC'))
-    print(romano_a_arabigo('XVI'))
