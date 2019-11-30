@@ -49,7 +49,7 @@ def romano_a_arabigo(numRomano):
 
 def arabigo_a_romano(valor):
     #1.- Descomponer valor en dígitos separando millares, centenas, decenas y unidades
-    if valor <= 4000:
+    if valor >= 4000:
         return 0
     valor = str(valor)
     millares = '0'
@@ -83,7 +83,3 @@ def arabigo_a_romano(valor):
     numRomanoConv = millares + centenas + decenas + unidades
     #4.- Devolverla
     return numRomanoConv
-
-if __name__ == '__main__':
-    print(arabigo_a_romano(625))
-    print(arabigo_a_romano(1234))
